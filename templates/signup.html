@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}Signup | JobPortal{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-7 col-lg-6">
+    <div class="card card-glass p-4">
+      <h3 class="text-white mb-3">Create Account</h3>
+
+      <form method="POST">
+        {% csrf_token %}
+
+        <div class="mb-3">
+          <label class="form-label text-white-50">Username</label>
+          <input class="form-control" type="text" name="username" required>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label text-white-50">Email</label>
+          <input class="form-control" type="email" name="email" required>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label text-white-50">Password</label>
+          <input class="form-control" type="password" name="password" required>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label text-white-50">Role</label>
+          <select class="form-select" name="role" required>
+            <option value="candidate">Candidate</option>
+            <option value="recruiter">Recruiter</option>
+          </select>
+        </div>
+
+        <button class="btn btn-primary w-100" type="submit">Signup</button>
+      </form>
+
+      <p class="text-white-50 mt-3 mb-0">
+        Already have account? <a href="{% url 'login' %}">Login</a>
+      </p>
+    </div>
+  </div>
+</div>
+{% endblock %}

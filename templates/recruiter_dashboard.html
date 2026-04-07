@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Recruiter Dashboard{% endblock %}
+
+{% block content %}
+<div class="card card-glass p-4">
+  <h2 class="text-white mb-1">Recruiter Dashboard</h2>
+  <p class="text-white-50">Welcome, {{ request.user.username }}</p>
+
+  <div class="row g-3 mt-2">
+    <div class="col-md-4">
+      <div class="card card-glass p-3 h-100">
+        <h5 class="text-white">Post a Job</h5>
+        <p class="text-white-50 small">Create a new job opening.</p>
+        <a class="btn btn-primary btn-sm" href="{% url 'post_job' %}">Post Job</a>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card card-glass p-3 h-100">
+        <h5 class="text-white">My Jobs</h5>
+        <p class="text-white-50 small">Manage jobs and view applicants.</p>
+        <a class="btn btn-primary btn-sm" href="{% url 'my_jobs' %}">View Jobs</a>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card card-glass p-3 h-100">
+        <h5 class="text-white">All Jobs</h5>
+        <p class="text-white-50 small">See public job listing page.</p>
+        <a class="btn btn-primary btn-sm" href="{% url 'job_list' %}">Browse</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

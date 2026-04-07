@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}My Applications{% endblock %}
+
+{% block content %}
+<h2 class="text-white mb-3">My Applications</h2>
+
+<div class="row g-3">
+  {% for a in apps %}
+    <div class="col-md-6 col-lg-4">
+      <div class="card card-glass p-3 h-100">
+        <h5 class="text-white mb-1">{{ a.job.title }}</h5>
+        <div class="text-white-50">{{ a.job.company_name }}</div>
+
+        <div class="mt-2 text-white-50 small">
+          📍 {{ a.job.location }} <br>
+          🏷️ {{ a.job.get_job_type_display }} <br>
+          ⏱️ Applied: {{ a.applied_at|date:"d M Y, h:i A" }}
+        </div>
+
+        <div class="mt-3">
+          <span class="badge badge-soft rounded-pill">Status: {{ a.get_status_display }}</span>
+        </div>
+      </div>
+    </div>
+  {% empty %}
+    <p class="text-white-50">No applications yet.</p>
+  {% endfor %}
+</div>
+{% endblock %}
