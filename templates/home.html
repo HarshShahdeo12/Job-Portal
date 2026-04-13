@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Home | JobPortal{% endblock %}
+
+{% block content %}
+<div class="p-4 p-md-5 hero">
+  <div class="row align-items-center g-4">
+    <div class="col-md-7">
+      <h1 class="display-6 fw-bold text-white">Find your next job faster 🚀</h1>
+      <p class="text-white-50 mb-4">
+        Browse curated openings, apply in one click, and track your application status.
+      </p>
+      <div class="d-flex gap-2">
+        <a class="btn btn-primary" href="{% url 'job_list' %}">Browse Jobs</a>
+        {% if not request.user.is_authenticated %}
+          <a class="btn btn-outline-light" href="{% url 'signup' %}">Create Account</a>
+        {% endif %}
+      </div>
+      <div class="mt-4 d-flex gap-2 flex-wrap">
+        <span class="badge badge-soft rounded-pill px-3 py-2">Internships</span>
+        <span class="badge badge-soft rounded-pill px-3 py-2">Full-time</span>
+        <span class="badge badge-soft rounded-pill px-3 py-2">Remote</span>
+        <span class="badge badge-soft rounded-pill px-3 py-2">Django / Python</span>
+      </div>
+    </div>
+    <div class="col-md-5">
+      <div class="card card-glass p-4">
+        <h5 class="text-white mb-3">Quick Actions</h5>
+        <ul class="mb-0">
+          <li class="text-white-50">✅ Role-based dashboards</li>
+          <li class="text-white-50">✅ Apply + track status</li>
+          <li class="text-white-50">✅ Resume upload</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

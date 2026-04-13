@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block title %}Post Job{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-10 col-lg-7">
+    <div class="card card-glass p-4">
+      <h3 class="text-white mb-3">Post a Job</h3>
+
+      <form method="POST">
+        {% csrf_token %}
+
+        <div class="mb-3">
+          <label class="form-label text-white-50">Title</label>
+          {{ form.title }}
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label text-white-50">Company Name</label>
+          {{ form.company_name }}
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label text-white-50">Location</label>
+          {{ form.location }}
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label text-white-50">Job Type</label>
+          {{ form.job_type }}
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label text-white-50">Salary</label>
+          {{ form.salary }}
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label text-white-50">Description</label>
+          {{ form.description }}
+        </div>
+
+        <div class="form-check mb-3">
+          {{ form.is_active }}
+          <label class="form-check-label text-white-50 ms-1">Is active</label>
+        </div>
+
+        <button class="btn btn-primary w-100" type="submit">Post Job</button>
+      </form>
+
+      <p class="text-white-50 mt-3 mb-0">
+        <a href="{% url 'my_jobs' %}">My Jobs</a> | <a href="{% url 'dashboard' %}">Dashboard</a>
+      </p>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Candidate Dashboard{% endblock %}
+
+{% block content %}
+<div class="card card-glass p-4">
+  <h2 class="text-white mb-1">Candidate Dashboard</h2>
+  <p class="text-white-50">Welcome, {{ request.user.username }}</p>
+
+  <div class="row g-3 mt-2">
+    <div class="col-md-4">
+      <div class="card card-glass p-3 h-100">
+        <h5 class="text-white">Browse Jobs</h5>
+        <p class="text-white-50 small">Explore latest openings and apply.</p>
+        <a class="btn btn-primary btn-sm" href="{% url 'job_list' %}">Open Jobs</a>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card card-glass p-3 h-100">
+        <h5 class="text-white">My Applications</h5>
+        <p class="text-white-50 small">Track Pending/Shortlisted/Rejected.</p>
+        <a class="btn btn-primary btn-sm" href="{% url 'my_applications' %}">View Status</a>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card card-glass p-3 h-100">
+        <h5 class="text-white">Profile + Resume</h5>
+        <p class="text-white-50 small">Update skills and upload resume PDF.</p>
+        <a class="btn btn-primary btn-sm" href="{% url 'edit_profile' %}">Edit Profile</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
